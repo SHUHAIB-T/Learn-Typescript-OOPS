@@ -37,3 +37,25 @@ const student1 = new Student("Hisham", 20, 10);
 
 student1.greeting();
 student1.sayStd();
+
+
+// function generics 
+function createPair<S, T>(v1: S, v2: T): [S, T] {
+  return [v1, v2];
+}
+console.log(createPair<string, number>("hello", 42)); // ['hello', 42]
+
+// example for gnerics in classes
+class Stack<T> {
+  private Items: T[] = [];
+
+  push(item: T): void {
+    this.Items.push(item);
+  }
+
+  pop(): T | undefined {
+    return this.Items.pop();
+  }
+}
+let stack1 = new Stack<string>;
+stack1.push("12");
